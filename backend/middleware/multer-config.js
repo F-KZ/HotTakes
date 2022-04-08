@@ -1,4 +1,4 @@
-// Formation OpenClassrooms - Développeur Web - Projet 6 - Thierry Laval
+
 
 // On importe multer qui est un package qui permet de gérer les fichiers entrants dans les requêtes HTTP
 const multer = require('multer');
