@@ -38,20 +38,23 @@ exports.signup = (req, res, next) => {
     .catch(error => res.status(500).json({
       error
     }));
+    console.log(req.body)
 
 };
+
 
 // Le Middleware pour la connexion d'un utilisateur vérifie si l'utilisateur existe dans la base MongoDB lors du login
 //si oui il vérifie son mot de passe, s'il est bon il renvoie un TOKEN contenant l'id de l'utilisateur, sinon il renvoie une erreur
 exports.login = (req, res, next) => {
+  console.log('POST, LOGIN, START')
   // On doit trouver l'utilisateur dans la BDD qui correspond à l'adresse entrée par l'utilisateur
   User.findOne({
       email: req.body.email
     })
-    console.log(email)
     .then(user => {
       // Si on trouve pas l'utilisateur on va renvoyer un code 401 "non autorisé"
       if (!user) {
+        console.log('POST, LOGIN, END STATUS 401 USER NOT FOUND')
         return res.status(401).json({
           error: 'Utilisateur non trouvé !'
         });
@@ -61,6 +64,7 @@ exports.login = (req, res, next) => {
         .then(valid => {
           // Si false, c'est que ce n'est pas le bon utilisateur, ou le mot de passe est incorrect
           if (!valid) {
+            console.log('POST, LOGIN, END STATUS 401 MDP INCORRECT')
             return res.status(401).json({
               error: 'Mot de passe incorrect !'
             });
@@ -84,11 +88,10 @@ exports.login = (req, res, next) => {
             // aux objets et ne pas modifier les objets des autres
           });
         })
-        .catch(error => res.status(500).json({
-          error
-        }));
     })
-    .catch(error => res.status(500).json({
-      error
-    }));
+    .catch(error => {
+    console.log('POST, LOGIN, END STATUS 500 ',error) 
+    res.status(500).json({
+     error: "erreur inattendu "
+    })});
 };

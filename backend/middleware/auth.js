@@ -1,4 +1,4 @@
-// Formation OpenClassrooms - Développeur Web - Projet 6 - Thierry Laval
+
 
 // Middleware qui protégera les routes sélectionnées et vérifier que l'utilisateur est authentifié avant d'autoriser l'envoi de ses requêtes.
 

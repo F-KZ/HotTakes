@@ -1,4 +1,4 @@
-// Formation OpenClassrooms - Développeur Web - Projet 6 - Thierry Laval
+
 
 // On prend toute la logique métier pour la déporter dans le fichier sauce.js de controllers
 // On ne garde que la logique de routing dans le fichier sauce.js du router. On importe aussi le model Sauce

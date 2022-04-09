@@ -51,6 +51,8 @@ app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, PATCH, OPTIONS');
   // on autorise ce serveur à fournir des scripts pour la page visitée
   res.setHeader('Content-Security-Policy', "default-src 'self'");
+  // paramétre à rajouter pour débloquer les images
+  res.setHeader('Cross-Origin-Resource-Policy', 'same-site')
   next();
 });
 
@@ -91,7 +93,7 @@ app.use(nocache());
 
 // Gestion de la ressource image de façon statique
 // Midleware qui permet de charger les fichiers qui sont dans le repertoire images
-//app.use('/images', express.static(path.join(__dirname, 'images')));
+app.use('/images', express.static(path.join(__dirname, 'images')));
 
 // Routes pour la gestion de toute les ressources de l'API attendues - Routage
 // Middleware qui va transmettre les requêtes vers ces url vers les routes correspondantes

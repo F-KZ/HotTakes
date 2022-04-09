@@ -14,7 +14,7 @@
     "debug": "~2.6.9",
     "dotenv": "^16.0.0",
     "express": "~4.16.1",
-    "helmet": "^5.0.2",
+    "helmet": "^4.5.0-rc.1",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.2.10",
     "mongoose-sanitizer-plugin": "^1.1.0",
